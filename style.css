@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --primary: #3498db;
+  --grn: #27ae60;
+  --bl: black;
+  --lg-1: linear-gradient(45deg, #87CEEB, #FFB6C1);
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+  --wrong:red;
+}
+
+
+
+.mainrow {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:wheat;
+}
+
+.form {
+  height: auto;
+   box-shadow: var(--box-shadow);
+  font-weight: 500;
+  background-color: white;
+}
+.main-heading {
+  text-align: center;
+  text-transform: uppercase;
+
+}
+input{
+  border-radius: 5px;
+  height: 35px;
+  padding: 0px 5px;
+}
+input[type="submit"]{
+  background:var(--lg-1);
+  width: 100%;
+  border: none;
+  font-weight: 800;
+}
+.heading-row{
+ 
+  background:var(--lg-1);
+}
+
+/* css for error and correct icons  */
+
+.form-control{
+  position: relative;
+   background-color: transparent !important;
+   border: none !important;
+
+}
+.form-control i{
+  position: absolute;
+  top: 38px;
+  right: 8%;
+  visibility: hidden;
+}
+
+
+
+/*  */
+.form small{
+  visibility: hidden;
+  color: var(--wrong);
+}
+
+.fa-circle-check {
+  color: var(--grn);
+}
+.fa-exclamation {
+  color: var(--wrong);
+  visibility: visible;
+}
+
+
+
+
+/* media queries */
+@media (max-width:768px) {
+  .form{
+    height:auto;
+  }
+}
