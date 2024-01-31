@@ -5,6 +5,7 @@ const phone = document.querySelector("#phone");
 const password = document.querySelector("#password");
 const passwordCheck = document.querySelector("#password-check");
 
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   checkInputs();
@@ -50,7 +51,6 @@ const isStrongPassword = (password) => {
     var numericCheck = false;
     var lowerCaseCheck = false;
     var upperCaseCheck = false;
-
     for (let i = 0; i < password.length; i++) {
         const charCode = password.charCodeAt(i);
 
@@ -66,7 +66,7 @@ const isStrongPassword = (password) => {
             upperCaseCheck = true;
         }
     }
-    return numericCheck && specialCharactersCheck && lowerCaseCheck && upperCaseCheck;
+    return numericCheck && specialCharactersCheck && lowerCaseCheck && upperCaseCheck && lengthCheck;
 };
 
 
@@ -114,7 +114,10 @@ const checkInputs = () => {
   // Check if the password is not blank
   if (passwordValue === "") {
     setErrormsg(password, "Password cannot be blank");
-  } else {
+  }else if(passwordValue.length <=6){
+    setErrormsg(password,"Password is too short , should contain at least 8 characters")
+  } 
+  else {
     if (isStrongPassword(passwordValue)) {
       setSuccessmsg(password);
     } else {
@@ -130,7 +133,14 @@ const checkInputs = () => {
   } else {
     setErrormsg(passwordCheck, "Passwords do not match");
   }
+
+  
 };
+
+
+
+
+
 
 function setErrormsg(input, errorMsg) {
   const parent = input.parentElement;
