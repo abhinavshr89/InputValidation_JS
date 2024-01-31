@@ -114,9 +114,11 @@ const checkInputs = () => {
   // Check if the password is not blank
   if (passwordValue === "") {
     setErrormsg(password, "Password cannot be blank");
-  }else if(passwordValue.length <=6){
+  }else if(passwordValue.length <=8){
     setErrormsg(password,"Password is too short , should contain at least 8 characters")
-  } 
+  }else if(passwordValue.length >=40){
+    setErrormsg(password,"Password is too long , should contain less than 40 characters")
+  }
   else {
     if (isStrongPassword(passwordValue)) {
       setSuccessmsg(password);
